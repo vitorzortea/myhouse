@@ -1,0 +1,52 @@
+<section id="detail" class="page">
+    <ng-container *ngIf="tables && seesion">
+        <header>
+            <span>
+                <button routerLink="/"><i class="far fa-arrow-to-left"></i> Voltar</button>
+            </span>
+            <span>
+                <h1><img src="/assets/icon.png" alt="MyHome" /> {{seesion.inicio.toDate() | date:'dd/LL' }} - {{seesion.final.toDate() | date:'dd/LL'}}</h1>
+            </span>
+            <span>
+                <button id="save" (click)="save()"><i class="fas fa-save"></i> Salver</button>
+            </span>
+        </header>
+        <div class="line"></div>
+        <main>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Nome</td>
+                            <td>Pagante</td>
+                            <td>Valor</td>
+                            <td>Data</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let line of lines; let i=index">
+                        <tr>
+                            <td><input type="text" name="nome" placeholder="Nome" [(ngModel)]="line.nome"></td>
+                            <td>
+                                <select name="pagante" [(ngModel)]="line.pagante">
+                                    <option value="Fernando">Fernando</option>
+                                    <option value="Vitor">Vitor</option>
+                                </select>
+                            </td>
+                            <td><input currencyMask name="valor" placeholder="Valor" [(ngModel)]="line.valor" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }"></td>
+                            <td><input type="date" name="data" placeholder="Data" [(ngModel)]="line.data"></td>
+                            <td><span (click)="removeLine(i)"><i class="fas fa-times-square"></i></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button (click)="addLine()"><i class="fas fa-plus-circle"></i> Adicionar Linha</button>
+            <div id="totais">
+                <div>Casa: <strong>R${{valorCasa | currency}}</strong></div>
+                <div>Fernando: <strong>R${{valorFernando | currency}}</strong></div>
+                <div>Vitor: <strong>R${{valorVitor | currency}}</strong></div>
+            </div>
+            <div id="total"><strong>{{divida.nome}} deve R$:{{divida.valor | currency}}</strong></div>
+        </main>
+    </ng-container>
+</section>

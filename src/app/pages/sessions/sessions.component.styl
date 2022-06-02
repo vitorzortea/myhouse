@@ -1,0 +1,101 @@
+#sessions
+    position relative
+    h1
+        max-width: 250px
+        width: 100%
+        display: table
+        margin: 0 auto 20px
+    #list-session
+        padding-top: 20px
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        &>div
+            margin: 10px
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            background: white
+            box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.2)
+            width: 350px
+            h2
+                padding: 15px 15px 10px
+                font-weight: bold
+                font-size: 28px
+                color: #273b49
+                &::after
+                    content: ''
+                    display: table
+                    width: 50px
+                    height: 5px
+                    background-color: #f2b8da
+                    margin-top: 12px
+
+            p
+                color: #7C7C7C
+                padding: 0 15px 15px
+
+            &>div
+                display: flex
+                flex-wrap: wrap
+                border-top: solid 1px #BDBDBD
+                padding: 10px 15px
+                justify-content: space-between
+
+                button
+                    color: #7C7C7C
+                    text-transform: uppercase
+                    cursor pointer
+                    &:hover
+                        color: #e5388e
+                    &:first-child
+                        margin-right: 10px
+                label
+                    display: flex
+                    input
+                        display: none
+                        &+div
+                            width: 40px
+                            height: 20px
+                            display: table
+                            position relative
+                            margin-right: 10px
+                            border-radius: 20px
+                            vertical-align: middle
+                            border: solid 1px #e5388e
+                            transition: .5s
+                            &>div
+                                top: 2px
+                                left: 2px
+                                width: 14px
+                                height: 14px
+                                display: table
+                                transition: .5s
+                                border-radius: 50%
+                                position: absolute
+                                background-color: #e5388e
+                        &:checked+div
+                            background: #e5388e
+                            &>div
+                                background-color: white
+                                left: calc(100% - 17px)
+
+    footer
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        box-shadow: -2px 0px 5px 1px rgba(0,0,0,0.2)
+        background-color: white
+        text-align: center
+        padding: 10px 2px
+        button
+            background-color: #e5388e
+            color: white
+            padding: 5px 20px
+            border-radius: 20px
+            font-weight: 600
+            i
+                font-size: 1.2em
+                vertical-align: middle
+                margin-right: 10px

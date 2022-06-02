@@ -1,0 +1,34 @@
+<section id="sessions" class="page">
+    <h1><img src="/assets/logo.png" alt="MyHome" /></h1>
+    <div class="line"></div>
+    <div id="list-session">
+        <ng-container *ngIf="list[0]">
+            <div *ngFor="let item of list">
+                <span>
+                    <h2>{{item.inicio.toDate() | date:'dd/LL' }} - {{item.final.toDate() | date:'dd/LL'}}</h2>
+                    <p *ngIf="item.description">{{item.description}}</p>
+                </span>
+                <div>
+                    <span>
+                        <button routerLink="/table/{{item.id}}">Detalhe</button>
+                        <button (click)="delete(item)">Remover</button>
+                    </span>
+                    <span>
+                        <label>
+                            <input name="page" [(ngModel)]="item.pago" (click)="tooglePago(item)" type="checkbox">
+                            <div><div></div></div>
+                            Pago
+                        </label>
+                    </span>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!list[0]">
+            <h2 class="no-list">Nenhum Período Cadastrado</h2>
+        </ng-container>
+        
+    </div>
+    <footer>
+        <button routerLink="/add"><i class="fas fa-plus-circle"></i> Adicionar Período</button>
+    </footer>
+</section>

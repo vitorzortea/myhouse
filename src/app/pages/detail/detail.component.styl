@@ -1,0 +1,119 @@
+#detail
+    header
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+        justify-content: space-between
+        width: 100%
+        max-width: 900px
+        margin: 0 auto
+        padding: 10px 0
+        text-align: left
+
+        button
+            background: #e5388e
+            color: white
+            font-weight: bold
+            padding: 10px 30px
+            border-radius: 10px
+            display: table
+    h1
+        text-align: center
+        font-weight: bold
+        font-size: 28px
+        color: #273b49
+        line-height: 1em
+        img
+            width: 1.5em
+            border-right: 10px
+            vertical-align: middle
+
+    main
+        max-width: 900px
+        margin: 10px auto
+
+        .table-wrapper
+            overflow: auto
+            width: 100%
+            table
+                width: calc(100% - 1px)
+                min-width: max-content
+                border-collapse: collapse;
+                border-spacing: 0px;
+                background-color: white
+                td:nth-child(2)
+                    width: 120px
+                td:nth-child(3)
+                    width: 150px
+                td:nth-child(4)
+                    width: 150px
+                thead tr td
+                    background-color: #e5388e
+                    color: white
+                    font-weight: bold
+                    padding: 5px 10px
+
+                tbody
+                    border: solid 1px #AAAAAA
+                    border-top: none
+                    border-bottom: none
+                    td
+                        padding: 0
+                        input,select
+                            width: 100%
+                            padding: 10px
+                        i
+                            font-size: 1.5em
+                            cursor pointer
+                            color: #e5388e
+                            vertical-align: middle
+            &+button
+                text-align: left
+                padding: 10px
+                background: white
+                width: 100%
+                border: solid 1px #AAAAAA
+                color: #e5388e
+                font-weight: bold
+                cursor pointer
+                &:hover
+                    background: #e5388e
+                    color: white
+
+    #totais
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        padding: 5px 0 0
+        &>div
+            background-color: #BABABA
+            width: 100%
+            max-width: 295px
+            padding: 20px
+            margin: 5px 0
+            //font-weight: bold
+            font-size: 1.2em
+            color: black
+            text-align: center
+    #total
+        background-color: #BABABA
+        width: 100%
+        padding: 20px
+        margin: 0 0 5px
+        //font-weight: bold
+        font-size: 1.2em
+        color: black
+        text-align: center
+
+@media only screen and (max-width: 600px)
+    #detail
+        header>span:nth-child(1), header>span:nth-child(3)
+            order: 3
+        header>span:nth-child(2)
+            display: table
+            width: 100%
+            order: 1
+            padding-bottom: 20px
+        #totais>div
+            max-width: 100%
+            margin-top: 0
